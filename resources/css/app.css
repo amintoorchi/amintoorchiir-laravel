@@ -1,0 +1,113 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+[tabindex]:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* @theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+} */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+    font-family: 'YekanBakh-Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../public/fonts/woff/YekanBakhFaNum-Regular.woff') format('woff'),   
+         url('../../public/fonts/woff2/YekanBakhFaNum-Regular.woff2') format('woff2');        
+}
+
+* {
+    font-family: 'YekanBakh-Regular', sans-serif;
+}
+
+
+@layer components {
+    .blog-content table {
+        width: 100%;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        border-collapse: collapse;
+        border: 1px solid rgb(228 228 231);
+        overflow: hidden;
+        font-size: 0.875rem;
+    }
+
+    .blog-content thead {
+        background-color: rgb(250 250 250);
+    }
+
+    .blog-content th,
+    .blog-content td {
+        border: 1px solid rgb(228 228 231);
+        padding: 0.875rem 1rem;
+        text-align: right;
+        vertical-align: middle;
+    }
+
+    .blog-content th {
+        font-weight: 800;
+        color: rgb(24 24 27);
+        white-space: nowrap;
+    }
+
+    .blog-content td {
+        color: rgb(82 82 91);
+    }
+
+    .blog-content tbody tr {
+        transition: background-color 150ms ease;
+    }
+
+    .blog-content tbody tr:hover {
+        background-color: rgb(250 250 250);
+    }
+
+    @media (max-width: 640px) {
+        .blog-content {
+            overflow-wrap: anywhere;
+        }
+
+        .blog-content table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .blog-content th,
+        .blog-content td {
+            padding: 0.75rem;
+        }
+    }
+
+    .dark .blog-content table {
+        border-color: rgb(39 39 42);
+    }
+
+    .dark .blog-content thead {
+        background-color: rgb(24 24 27);
+    }
+
+    .dark .blog-content th,
+    .dark .blog-content td {
+        border-color: rgb(39 39 42);
+    }
+
+    .dark .blog-content th {
+        color: rgb(244 244 245);
+    }
+
+    .dark .blog-content td {
+        color: rgb(161 161 170);
+    }
+
+    .dark .blog-content tbody tr:hover {
+        background-color: rgb(24 24 27);
+    }
+}
