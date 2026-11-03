@@ -12,6 +12,13 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <script>
+        if (!localStorage.getItem('flux.appearance')) {
+            localStorage.setItem('flux.appearance', 'dark');
+        }
+    </script>
+
+    @fluxAppearance
     @fluxAppearance
     @livewireStyles
 </head>
@@ -23,10 +30,10 @@
 
             <div class="flex justify-center items-center align-middle gap-10">
                 {{-- Logo --}}
-                <a href="/"
+                <a href="{{ route('home') }}" wire:navigate
                     class="logo flex shrink-0 items-center gap-1 text-lg font-bold tracking-tight text-[var(--gruvbox-fg)]! no-underline!">
 
-                    <span class="logo__text">amin</span>
+                    <span class="logo__text">4min</span>
                     <span class="logo__chevron text-[var(--gruvbox-yellow)]!">&gt;</span>
                     <span class="logo__cursor text-[var(--gruvbox-yellow)]!">█</span>
                 </a>
@@ -49,7 +56,7 @@
                     <ul
                         class="menu--horizontal flex items-center gap-6 text-xl text-[var(--gruvbox-fg-muted)] font-extrabold">
                         <li class="menu__item">
-                            <a href="/"
+                            <a href="{{ route('home') }}" wire:navigate
                                 class="text-[var(--gruvbox-fg-muted)]! no-underline! transition-colors hover:text-[var(--gruvbox-yellow)]!">
                                 Home
                             </a>
@@ -112,35 +119,35 @@
                         </li>
 
                         <li>
-                            <a href="/blog/"
+                            <a href=""
                                 class="block rounded px-3 py-2 text-[var(--gruvbox-fg-muted)]! no-underline! hover:bg-[var(--gruvbox-hover)] hover:text-[var(--gruvbox-yellow)]!">
                                 Blog
                             </a>
                         </li>
 
                         <li>
-                            <a href="/contact/"
+                            <a href=""
                                 class="block rounded px-3 py-2 text-[var(--gruvbox-fg-muted)]! no-underline! hover:bg-[var(--gruvbox-hover)] hover:text-[var(--gruvbox-yellow)]!">
                                 Contact
                             </a>
                         </li>
 
                         <li>
-                            <a href="/links/"
+                            <a href=""
                                 class="block rounded px-3 py-2 text-[var(--gruvbox-fg-muted)]! no-underline! hover:bg-[var(--gruvbox-hover)] hover:text-[var(--gruvbox-yellow)]!">
                                 Links
                             </a>
                         </li>
 
                         <li>
-                            <a href="/about/"
+                            <a href=""
                                 class="block rounded px-3 py-2 text-[var(--gruvbox-fg-muted)]! no-underline! hover:bg-[var(--gruvbox-hover)] hover:text-[var(--gruvbox-yellow)]!">
                                 About
                             </a>
                         </li>
 
                         <li>
-                            <a href="/support/"
+                            <a href=""
                                 class="block rounded px-3 py-2 text-[var(--gruvbox-fg-muted)]! no-underline! hover:bg-[var(--gruvbox-hover)] hover:text-[var(--gruvbox-yellow)]!">
                                 Support
                             </a>
@@ -162,7 +169,7 @@
     <main class="mx-auto grid w-full max-w-full flex-1 grid-cols-1 gap-8  !py-8 lg:grid-cols-[7fr_3fr] lg:mt-10">
 
         {{-- Blog Content: 70% --}}
-        <div class="min-w-0 px-3 sm:px-10 md:px-10 lg:px-25 xl:px-50   ">
+        <div class="min-w-0 px-5 sm:px-10 md:px-10 lg:px-25 xl:px-50   ">
             {{ $slot }}
         </div>
 
@@ -176,7 +183,7 @@
                     </h2>
 
                     <h2 class="text-sm text-[var(--gruvbox-fg-muted)]">
-                        Backend Developer · Linux · DevOps Enthusiast
+                        Backend Developer · Linux User ツ 
                     </h2>
                 </section>
 
