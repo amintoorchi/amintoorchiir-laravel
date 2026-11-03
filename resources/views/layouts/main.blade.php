@@ -159,8 +159,84 @@
         </div>
     </header>
 
-    <main class="mx-auto w-full max-w-full flex-1 !py-8">
-        {{ $slot }}
+    <main class="mx-auto grid w-full max-w-full flex-1 grid-cols-1 gap-8  !py-8 lg:grid-cols-[7fr_3fr] lg:mt-10">
+
+        {{-- Blog Content: 70% --}}
+        <div class="min-w-0 px-3 sm:px-10 md:px-10 lg:px-25 xl:px-50   ">
+            {{ $slot }}
+        </div>
+
+        {{-- Sidebar: 30% --}}
+        <aside class="hidden min-w-0 pr-40 text-center lg:flex">
+            <div class="sticky top-6 space-y-6">
+
+                <section class="space-y-2">
+                    <h2 class="text-2xl font-bold text-[var(--gruvbox-fg)]">
+                        Amin Toorchi
+                    </h2>
+
+                    <h2 class="text-sm text-[var(--gruvbox-fg-muted)]">
+                        Backend Developer · Linux · DevOps Enthusiast
+                    </h2>
+                </section>
+
+                <hr>
+
+                <section class="space-y-4 text-center">
+
+                    {{-- Email --}}
+                    <div class="text-sm text-[var(--gruvbox-fg-muted)]">
+                        amin.tourchie@gmail.com
+                    </div>
+
+                    {{-- Website --}}
+                    <div class="text-sm">
+                        <a href="https://amintoorchi.ir" target="_blank" rel="noopener noreferrer"
+                            class="text-[var(--gruvbox-fg-muted)] transition-colors hover:text-[var(--gruvbox-yellow)]">
+                            amintoorchi.ir
+                        </a>
+                    </div>
+
+                    <hr class="border-[var(--gruvbox-border)]">
+
+                    {{-- Social Profiles --}}
+                    <div class="flex flex-col gap-3">
+
+                        {{-- GitHub --}}
+                        <a href="https://github.com/amintoorchi" target="_blank" rel="noreferrer me"
+                            class="group flex items-center justify-center gap-2 text-sm text-[var(--gruvbox-fg-muted)] transition-colors hover:text-[var(--gruvbox-yellow)]">
+
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                class="size-4">
+                                <title>GitHub</title>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.043-1.416-4.043-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.73.082-.73 1.205.085 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.304.762-1.604-2.665-.303-5.467-1.333-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.624-5.48 5.92.43.37.814 1.102.814 2.222v3.293c0 .322.216.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12Z" />
+                            </svg>
+
+                            <span>@amintoorchi</span>
+                        </a>
+
+                        {{-- LinkedIn --}}
+                        <a href="https://linkedin.com/in/amintoorchi" target="_blank" rel="noreferrer me"
+                            class="group flex items-center justify-center gap-2 text-sm text-[var(--gruvbox-fg-muted)] transition-colors hover:text-[var(--gruvbox-yellow)]">
+
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                class="size-4">
+                                <title>LinkedIn</title>
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124ZM7.119 20.452H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z" />
+                            </svg>
+
+                            <span>amintoorchi</span>
+                        </a>
+
+                    </div>
+
+                </section>
+
+            </div>
+        </aside>
+
     </main>
 
     <footer class="mt-20 border-t border-[var(--gruvbox-border)] bg-[var(--gruvbox-bg-soft)]">
