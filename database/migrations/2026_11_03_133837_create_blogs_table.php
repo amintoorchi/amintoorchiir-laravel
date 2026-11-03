@@ -77,17 +77,13 @@ return new class extends Migration
             |--------------------------------------------------------------------------
             */
 
-            $table->string('status', 20)->default('draft');
-
-            $table->boolean('is_public')->default(false);
+            $table->boolean('is_published')->default(false);
 
             $table->boolean('is_featured')->default(false);
 
             $table->boolean('is_pinned')->default(false);
 
             $table->boolean('allow_comments')->default(false);
-
-            $table->timestamp('published_at')->nullable();
 
             /*
             |--------------------------------------------------------------------------
@@ -141,9 +137,7 @@ return new class extends Migration
             |--------------------------------------------------------------------------
             */
 
-            $table->index(['status', 'published_at']);
-
-            $table->index(['is_public', 'published_at']);
+            $table->index('is_published');
 
             $table->index('is_featured');
 
