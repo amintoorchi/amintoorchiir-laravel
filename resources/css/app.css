@@ -1,11 +1,17 @@
 @import 'tailwindcss';
 @import '../../vendor/livewire/flux/dist/flux.css';
+@plugin "@tailwindcss/typography";
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+
+.markdown-content {
+    font-variant-numeric: lining-nums;
+    font-feature-settings: "lnum" 1, "tnum" 0;
+}
 /*
 |--------------------------------------------------------------------------
 | Gruvbox Theme
@@ -57,17 +63,17 @@
 |--------------------------------------------------------------------------
 */
 
-@font-face {
+/* @font-face {
     font-family: 'YekanBakh-Regular';
     font-style: normal;
     font-weight: 400;
     src:
         url('../../public/fonts/woff/YekanBakhFaNum-Regular.woff') format('woff'),
         url('../../public/fonts/woff2/YekanBakhFaNum-Regular.woff2') format('woff2');
-}
+} */
 
 html {
-    font-family: 'YekanBakh-Regular', sans-serif;
+    font-family: Georgia, 'Times New Roman', serif;
 }
 
 input,
