@@ -4,29 +4,141 @@
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+|--------------------------------------------------------------------------
+| Gruvbox Theme
+|--------------------------------------------------------------------------
+*/
+
+@theme {
+    --color-background: var(--gruvbox-bg);
+    --color-foreground: var(--gruvbox-fg);
+
+    --color-card: var(--gruvbox-bg-soft);
+    --color-card-foreground: var(--gruvbox-fg);
+
+    --color-popover: var(--gruvbox-bg-soft);
+    --color-popover-foreground: var(--gruvbox-fg);
+
+    --color-primary: var(--gruvbox-primary);
+    --color-primary-foreground: var(--gruvbox-bg-hard);
+
+    --color-secondary: var(--gruvbox-secondary);
+    --color-secondary-foreground: var(--gruvbox-bg-hard);
+
+    --color-muted: var(--gruvbox-bg-soft);
+    --color-muted-foreground: var(--gruvbox-fg-muted);
+
+    --color-accent: var(--gruvbox-hover);
+    --color-accent-foreground: var(--gruvbox-fg);
+
+    --color-destructive: #fb4934;
+    --color-destructive-foreground: #282828;
+
+    --color-border: var(--gruvbox-border);
+    --color-input: var(--gruvbox-border);
+    --color-ring: var(--gruvbox-primary);
+
+    --color-red: #fb4934;
+    --color-green: #b8bb26;
+    --color-yellow: #fabd2f;
+    --color-blue: #83a598;
+    --color-purple: #d3869b;
+    --color-aqua: #8ec07c;
+    --color-orange: #fe8019;
+
+    --font-sans: 'YekanBakh-Regular', ui-sans-serif, system-ui, sans-serif;
+}
+/*
+|--------------------------------------------------------------------------
+| Typography
+|--------------------------------------------------------------------------
+*/
+
+@font-face {
+    font-family: 'YekanBakh-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src:
+        url('../../public/fonts/woff/YekanBakhFaNum-Regular.woff') format('woff'),
+        url('../../public/fonts/woff2/YekanBakhFaNum-Regular.woff2') format('woff2');
+}
+
+html {
+    font-family: 'YekanBakh-Regular', sans-serif;
+}
+
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Global Styles
+|--------------------------------------------------------------------------
+*/
+
 [tabindex]:focus:not(:focus-visible),
 a:focus:not(:focus-visible) {
     outline: none;
 }
 
-/* @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-} */
+/*
+|--------------------------------------------------------------------------
+| Gruvbox Light
+|--------------------------------------------------------------------------
+*/
 
-@custom-variant dark (&:where(.dark, .dark *));
+:root {
+    color-scheme: light;
 
-@font-face {
-    font-family: 'YekanBakh-Regular';
-    font-style: normal;
-    font-weight: normal;
-    src: url('../../public/fonts/woff/YekanBakhFaNum-Regular.woff') format('woff'),   
-         url('../../public/fonts/woff2/YekanBakhFaNum-Regular.woff2') format('woff2');        
+    --gruvbox-bg: #fbf1c7;
+    --gruvbox-bg-soft: #f2e5bc;
+    --gruvbox-bg-hard: #f9f5d7;
+
+    --gruvbox-fg: #3c3836;
+    --gruvbox-fg-muted: #7c6f64;
+
+    --gruvbox-border: #d5c4a1;
+    --gruvbox-hover: #ebdbb2;
+
+    --gruvbox-primary: #b57614;
+    --gruvbox-secondary: #689d6a;
 }
 
-* {
-    font-family: 'YekanBakh-Regular', sans-serif;
+/*
+|--------------------------------------------------------------------------
+| Gruvbox Dark
+|--------------------------------------------------------------------------
+*/
+
+.dark {
+    color-scheme: dark;
+
+    --gruvbox-bg: #282828;
+    --gruvbox-bg-soft: #32302f;
+    --gruvbox-bg-hard: #1d2021;
+
+    --gruvbox-fg: #ebdbb2;
+    --gruvbox-fg-muted: #a89984;
+
+    --gruvbox-border: #504945;
+    --gruvbox-hover: #3c3836;
+
+    --gruvbox-primary: #fabd2f;
+    --gruvbox-secondary: #8ec07c;
 }
 
+/*
+|--------------------------------------------------------------------------
+| Blog Content
+|--------------------------------------------------------------------------
+*/
 
 @layer components {
     .blog-content table {
@@ -34,18 +146,18 @@ a:focus:not(:focus-visible) {
         margin-top: 2rem;
         margin-bottom: 2rem;
         border-collapse: collapse;
-        border: 1px solid rgb(228 228 231);
+        border: 1px solid var(--gruvbox-border);
         overflow: hidden;
         font-size: 0.875rem;
     }
 
     .blog-content thead {
-        background-color: rgb(250 250 250);
+        background-color: var(--gruvbox-bg-soft);
     }
 
     .blog-content th,
     .blog-content td {
-        border: 1px solid rgb(228 228 231);
+        border: 1px solid var(--gruvbox-border);
         padding: 0.875rem 1rem;
         text-align: right;
         vertical-align: middle;
@@ -53,12 +165,12 @@ a:focus:not(:focus-visible) {
 
     .blog-content th {
         font-weight: 800;
-        color: rgb(24 24 27);
+        color: var(--gruvbox-fg);
         white-space: nowrap;
     }
 
     .blog-content td {
-        color: rgb(82 82 91);
+        color: var(--gruvbox-fg-muted);
     }
 
     .blog-content tbody tr {
@@ -66,7 +178,7 @@ a:focus:not(:focus-visible) {
     }
 
     .blog-content tbody tr:hover {
-        background-color: rgb(250 250 250);
+        background-color: var(--gruvbox-hover);
     }
 
     @media (max-width: 640px) {
@@ -85,29 +197,127 @@ a:focus:not(:focus-visible) {
             padding: 0.75rem;
         }
     }
+}
 
-    .dark .blog-content table {
-        border-color: rgb(39 39 42);
+@layer base {
+    /* Document */
+    html {
+        background-color: var(--gruvbox-bg);
+        color: var(--gruvbox-fg);
+        font-family: 'YekanBakh-Regular', sans-serif;
     }
 
-    .dark .blog-content thead {
-        background-color: rgb(24 24 27);
+    body {
+        background-color: var(--gruvbox-bg);
+        color: var(--gruvbox-fg);
+        font-family: 'YekanBakh-Regular', sans-serif;
     }
 
-    .dark .blog-content th,
-    .dark .blog-content td {
-        border-color: rgb(39 39 42);
+    button.theme-toggle {
+        @apply bg-transparent text-foreground border border-border;
     }
 
-    .dark .blog-content th {
-        color: rgb(244 244 245);
+    button.theme-toggle:hover {
+        @apply bg-accent text-accent-foreground;
     }
 
-    .dark .blog-content td {
-        color: rgb(161 161 170);
+    /* Headings */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--gruvbox-fg);
+        font-weight: 700;
     }
 
-    .dark .blog-content tbody tr:hover {
-        background-color: rgb(24 24 27);
+    /* Links */
+    a {
+        color: var(--gruvbox-primary);
+        transition: color 150ms ease;
+    }
+
+    a:hover {
+        color: var(--gruvbox-secondary);
+    }
+
+    /* Buttons */
+    button {
+        background-color: var(--gruvbox-primary);
+        color: var(--gruvbox-bg-hard);
+        border: 1px solid transparent;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+            background-color 150ms ease,
+            color 150ms ease,
+            border-color 150ms ease;
+    }
+
+    button:hover {
+        filter: brightness(1.1);
+    }
+
+    button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    /* Inputs */
+    input,
+    textarea,
+    select {
+        background-color: var(--gruvbox-bg-soft);
+        color: var(--gruvbox-fg);
+        border: 1px solid var(--gruvbox-border);
+        border-radius: 0.5rem;
+        padding: 0.625rem 0.875rem;
+        outline: none;
+        transition:
+            border-color 150ms ease,
+            box-shadow 150ms ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: var(--gruvbox-fg-muted);
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+        border-color: var(--gruvbox-primary);
+        box-shadow: 0 0 0 2px color-mix(in srgb, var(--gruvbox-primary) 25%, transparent);
+    }
+
+    /* Selection */
+    ::selection {
+        background-color: var(--gruvbox-primary);
+        color: var(--gruvbox-bg-hard);
+    }
+
+    /* Horizontal Rule */
+    hr {
+        border-color: var(--gruvbox-border);
+    }
+
+    /* Tables */
+    table {
+        border-color: var(--gruvbox-border);
+    }
+
+    /* Code */
+    code,
+    pre {
+        color: var(--gruvbox-secondary);
+    }
+
+    /* Scrollbar */
+    * {
+        scrollbar-color: var(--gruvbox-border) var(--gruvbox-bg);
+        scrollbar-width: thin;
     }
 }
